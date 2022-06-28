@@ -8,19 +8,12 @@ function task1() {
 }
 
 function task2() {
-    // function filterArray(Boolean) {
-    //     return array.filter(Boolean);
-    // }
-    // let array = [0, 1, 2, null, undefined, 'qwerty', false];
-    // let result = filterArray(Boolean);
-    // console.log(result);
-
-    function filterArray(arr1, arr2) {
-        return arr1.filter(item => !arr2.includes(item))
+    function filterArray(array, ...args) {
+        return array.filter(item => !args.includes(item));
     }
+
     let array = [0, 1, 2, null, undefined, 'qwerty', false];
-    let arrayDelete = [0, null, undefined, '', false];
-    let result = filterArray(array, arrayDelete);
+    let result = filterArray(array, 0, null, undefined, '', false);
     console.log(result);
 }
 
@@ -49,6 +42,7 @@ function task4() {
             console.log(a + x + b);
         }
     }
+
     const pipeFunction = createPipe();
     pipeFunction('some text you like');
 // output: ===== 'some text you like' =====
@@ -58,12 +52,15 @@ function task5() {
     function createFunction(text, func) {
         return func(text);
     }
+
     function showMessage1(text) {
         console.log(text);
     }
+
     function showMessage2(text) {
         alert(text);
     }
+
     createFunction('Hello, World', showMessage1);
     createFunction('Hello, World', showMessage2)
 
